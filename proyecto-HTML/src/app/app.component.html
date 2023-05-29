@@ -1,0 +1,49 @@
+<nav class="navbar-expand-lg navbar-dark bg-primary">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active"
+        >Crear Cuenta</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/userAdd']" routerLinkActive="active"
+        >Agregar Estudiante</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/userList']" routerLinkActive="active"
+        >Listar Estudiantes</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/postAdd']" routerLinkActive="active"
+        >Agregar Materia</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/postList']" routerLinkActive="active"
+        >Listar Materias</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        (click)="getUserManual()"
+        routerLinkActive="active"
+        style="cursor: pointer"
+        >Ayuda</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        (click)="logout()"
+        routerLinkActive="active"
+        style="cursor: pointer"
+        >Cerrar Sesión</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
