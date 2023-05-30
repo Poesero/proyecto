@@ -1,48 +1,14 @@
-<main class="py-5">
-  <section class="mb-5">
-    <div class="container">
-      <h3 class="mb-3">{{ Usuario.userName }} {{ post.text }}</h3>
-      <div class="bg-light p-3">
-        <div class="row">
-          <div class="col-lg-3">
-            <label>USER NAME: </label>
-            {{ Usuario.userName }}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-3">
-            <label>POST: </label>
-            {{ post.text }}
-          </div>
-        </div>
-      </div>
-      <div
-        class="bg-light p-4"
-        *ngIf="postList !== undefined && postList.length > 0"
-      >
-        <h5 class="mb-3">Post</h5>
-        <div class="row">
-          <table class="table table-striped">
-            <thead class="thead bg-primary text-white">
-              <tr>
-                <th scope="col">User Name</th>
-                <th scope="col">Post</th>
-              </tr>
-            </thead>
+<table>
             <tbody>
               <tr *ngFor="let post of postList">
-                <td *ngIf="user.userName !== undefined">
-                  {{ post.user.userName }}
+                <td>
+                  {{ post.id}}
                 </td>
-                <td *ngIf="post.text !== undefined">
+                <td>
                   {{ post.text }}
                 </td>
+                <td><button>View</button></td>
+                <td><button>Delete</button></td>
               </tr>
             </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+</table>

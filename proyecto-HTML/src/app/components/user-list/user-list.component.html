@@ -1,26 +1,19 @@
-<main class="py-5">
-  <section class="mb-5">
-    <div class="container">
-      <h2 class="mb-4">Usuarios</h2>
-      <table class="table table-striped">
-        <thead class="thead bg-primary text-white">
-          <tr>
-            <th scope="col">User Name</th>
-            <th scope="col">User Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of userList">
-            <td>{{ user.id }}</td>
-            <td>{{ user.userName }}</td>
-            <td>{{ user.userMail }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <app-paginator *ngIf="totalUsers">
-        7" [totalResults]="totalUsers" [pageNumber]="page"
-        (pageChange)="onPageChange($event)"></app-paginator
-      >
-    </div>
-  </section>
-</main>
+<h2 class="mb-4">Usuarios</h2>
+<table class="table table-striped">
+  <thead class="thead bg-primarytext-white">
+    <tr>
+      <th scope="col">User Name</th>
+      <th scope="col">User Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{ user.id }}</td>
+      <td>{{ user.userName }}</td>
+      <td>{{ user.userMail }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-paginator *ngIf="totalUsers">
+  7" [totalResults]="totalUsers"[pageNumber]="page"
+  (pageChange)="onPageChange($event)"><app-paginator>
