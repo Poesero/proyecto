@@ -1,5 +1,5 @@
-exports class Post{
-    id: number
-    userId: number
-    text: String
+export class Post {
+  id: number;
+  userId: number;
+  text: String;
 }
