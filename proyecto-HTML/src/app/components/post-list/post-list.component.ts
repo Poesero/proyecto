@@ -18,21 +18,24 @@ import { Post } from 'src/app/models/post'
     costructor(private postService: PostService, private router: Router){}
 
     ngOnInit(){
-        this.postService.getTotal().subscribe(totalResponse => {
+
+        this.student.dni = ''
+        this.student.lastName = ''
+
+        this.studentForm = new FormGroup({
+            'dni': new FormControl(this.student.dni, { validators: [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(8)], asyncValidators: this.checkDni.bind(this), updateOn: 'blur' }),
+            'lastName': new FormControl(this.student.lastName, Validators.required)
+        })
+        document.getElementsByTagName('input')[0].focus()
+    
+        get dni() { return this.studentForm.get('dni') }
+        get lastName() { return this.studentForm.get('lastName') }
+
+        this.postService.getAll().subscribe(totalResponse => {
             this.totalPosts = totalResponse
-            this.getAll()
         }, error => {
             console.error(error)
             alert("Error: " +error.error.message)
-        })
-    }
-
-    getAll() {
-        this.postService.getFromTo(this.page, this.size).subscribe(response => {
-        this.postList = response
-        }, error => {
-        console.error(error)
-        alert('Error: ' + error.error.message)
         })
     }
 
