@@ -11,9 +11,7 @@ import { Post } from 'src/app/models/post'
   export class PostListComponent implements OnInit {
   
     studentList = new Array<Student>()
-    totalStudents: number
-    page: number = 0
-    size: number = 5
+   
 
     costructor(private postService: PostService, private router: Router){}
 
@@ -23,10 +21,8 @@ import { Post } from 'src/app/models/post'
         this.student.lastName = ''
 
         this.studentForm = new FormGroup({
-            'dni': new FormControl(this.student.dni, { validators: [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(8)], asyncValidators: this.checkDni.bind(this), updateOn: 'blur' }),
             'lastName': new FormControl(this.student.lastName, Validators.required)
-        })
-        document.getElementsByTagName('input')[0].focus()
+        })  
     
         get dni() { return this.studentForm.get('dni') }
         get lastName() { return this.studentForm.get('lastName') }
