@@ -10,22 +10,22 @@ import { Post } from 'src/app/models/post'
   })
   export class PostListComponent implements OnInit {
   
-    studentList = new Array<Student>()
+    postList = new Array<Post>()
    
 
     costructor(private postService: PostService, private router: Router){}
 
     ngOnInit(){
 
-        this.student.dni = ''
-        this.student.lastName = ''
+        this.post.userId= ''
+        this.post.text = ''
 
-        this.studentForm = new FormGroup({
-            'lastName': new FormControl(this.student.lastName, Validators.required)
+        this.postForm = new FormGroup({
+            'userId': new FormControl(this.post.userId, Validators.required)
         })  
     
-        get dni() { return this.studentForm.get('dni') }
-        get lastName() { return this.studentForm.get('lastName') }
+        get userId() { return this.postForm.get('userId') }
+        get text() { return this.postForm.get('text') }
 
         this.postService.getAll().subscribe(totalResponse => {
             this.totalPosts = totalResponse
