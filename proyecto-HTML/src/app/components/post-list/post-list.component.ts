@@ -27,6 +27,7 @@ import { Post } from 'src/app/models/post'
         get userId() { return this.postForm.get('userId') }
         get text() { return this.postForm.get('text') }
 
+
         this.postService.getAll().subscribe(totalResponse => {
             this.totalPosts = totalResponse
         }, error => {
