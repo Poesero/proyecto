@@ -9,13 +9,10 @@ import { Observable } from 'rxjs';
 export class UserService {
   private url = 'http://localhost:8080/user';
   constructor(private http: HttpClient) {}
-  addEventListener(user: Usuario): Observable<any> {
+  add(user: Usuario): Observable<any> {
     return this.http.post(this.url, user);
   }
 
-  getFromTo(page, size): Observable<any> {
-    return this.http.get(this.url + '?page=' + page + '&size=' + size);
-  }
 
   getTotal(): Observable<any> {
     return this.http.get(this.url + '/total');

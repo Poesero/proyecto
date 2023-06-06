@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
 import { PostService } from 'src/app/services/post.service'
-import { Post } from 'src/app/models/post'
+import { Component, OnInit } from '@angular/core'
+import { Validators } from '@angular/forms';
+import { Post } from 'src/app/models/post';
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-post-list',
@@ -11,6 +12,7 @@ import { Post } from 'src/app/models/post'
   export class PostListComponent implements OnInit {
   
     postList = new Array<Post>()
+    postForm: FormGroup
    
 
     costructor(private postService: PostService, private router: Router){}

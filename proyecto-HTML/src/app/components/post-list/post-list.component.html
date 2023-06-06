@@ -11,4 +11,15 @@
                 <td><button>Delete</button></td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                   <input>
+                </td>
+                <td>
+                  <select formControlName="postId" class="form-control">
+                    <option *ngFor=" let post of postList" [value]="post.postId">{{post.text}}</option>
+                  </select></td>
+              </tr>
+            </tfoot>
 </table>

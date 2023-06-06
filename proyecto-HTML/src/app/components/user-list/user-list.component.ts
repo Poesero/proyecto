@@ -1,8 +1,9 @@
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/user';
-import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +12,7 @@ import { Validators } from '@angular/forms';
   })
   export class UserListComponent implements OnInit {
     userList = new Array<Usuario>();
-  
+          
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
@@ -33,6 +34,33 @@ import { Validators } from '@angular/forms';
       alert("Error: " +error.error.message)
     })
   }
-
   
+  delete(id){
+    this.userService.delete(id).subscribe(() => {
+      location.reload()
+      alert('Baja Exitosa!')
+    }, error => {
+      console.error(error);
+      if (error.status == 500) {
+        alert('Error: ')
+      }
+    })
+  }
+    
+  addUsuario() {
+    let user = new Usuario()
+    user.userMail = this.user.value
+    user.userName = this.user.value
+  
+    this.userService.add(user).subscribe(() => {
+      this.userMail.setValue('')
+      this.userName.setValue('')
+      alert('Alta Exitosa!')
+      document.getElementsByTagName('input')[0].focus()
+    }, error => {
+      console.error(error)
+      alert('Error: ' + error.error.message)
+      document.getElementsByTagName('input')[0].focus()
+    })
+  }
 }

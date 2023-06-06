@@ -7,16 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PostService {
-  privateurl = 'http://localhost:8080/post';
+  private url = 'http://localhost:8080/post';
 
   constructor(private http: HttpClient) {}
 
   add(post: Post): Observable<any> {
     return this.http.post(this.url, post);
-  }
-
-  getFromTo(page, size): Observable<any> {
-    return this.http.get(this.url + '?page=' + page + '&size=' + size);
   }
 
   getAll(): Observable<any> {
