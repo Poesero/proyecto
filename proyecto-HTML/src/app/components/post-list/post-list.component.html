@@ -1,4 +1,10 @@
-<table>
+<table class "table table-striped">
+  <thead class="thead bg-primarytext-white">
+    <tr>
+      <th scope="col">Post</th>
+      <th scope="col">User Name</th>
+    </tr>
+  </thead>
             <tbody>
               <tr *ngFor="let post of postList">
                 <td>
@@ -20,6 +26,8 @@
                   <select formControlName="postId" class="form-control">
                     <option *ngFor=" let post of postList" [value]="post.postId">{{post.text}}</option>
                   </select></td>
+                  <td><button>Add</button></td>
               </tr>
             </tfoot>
+
 </table>
