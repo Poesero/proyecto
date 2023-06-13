@@ -1,8 +1,10 @@
 import { PostService } from 'src/app/services/post.service'
 import { Component, OnInit } from '@angular/core'
-import { Validators } from '@angular/forms';
+import { FormGroup, Validators, FormsModule, FormControl} from '@angular/forms';
 import { Post } from 'src/app/models/post';
 import { Router } from '@angular/router'
+
+
 
 @Component({
     selector: 'app-post-list',
@@ -10,24 +12,27 @@ import { Router } from '@angular/router'
     styleUrls: ['./post-list.component.css']
   })
   export class PostListComponent implements OnInit {
-  
+
+    imports:[FormsModule];
     postList = new Array<Post>()
     postForm: FormGroup
-   
+    userId: string
+    text: string
 
-    costructor(private postService: PostService, private router: Router){}
+
+    costructor(private postService: PostService, /*private router: Router*/){}
 
     ngOnInit(){
 
-        this.post.userId= ''
-        this.post.text = ''
+        this.userId= '0'
+        this.text = ''
 
         this.postForm = new FormGroup({
-            'userId': new FormControl(this.post.userId, Validators.required)
+            'userId': new FormControl(this.userId, Validators.required)
         })  
     
-        get userId() { return this.postForm.get('userId') }
-        get text() { return this.postForm.get('text') }
+        get userId() ;{ return this.postForm.get('userId') }
+        get text() ;{ return this.postForm.get('text') }
 
 
         this.postService.getAll().subscribe(totalResponse => {

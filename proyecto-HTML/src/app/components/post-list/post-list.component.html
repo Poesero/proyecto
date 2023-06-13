@@ -1,33 +1,44 @@
-<table class "table table-striped">
-  <thead class="thead bg-primarytext-white">
-    <tr>
-      <th scope="col">Post</th>
-      <th scope="col">User Name</th>
-    </tr>
-  </thead>
-            <tbody>
-              <tr *ngFor="let post of postList">
-                <td>
-                  {{ post.id}}
-                </td>
-                <td>
-                  {{ post.text }}
-                </td>
-                <td><button>View</button></td>
-                <td><button>Delete</button></td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td>
-                   <input>
-                </td>
-                <td>
-                  <select formControlName="postId" class="form-control">
-                    <option *ngFor=" let post of postList" [value]="post.postId">{{post.text}}</option>
-                  </select></td>
-                  <td><button>Add</button></td>
-              </tr>
-            </tfoot>
-
-</table>
+<style>
+  table.table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+</style>
+<body style="background-color: rgb(73, 114, 119)">
+  <table class="table table-striped">
+    <thead class="thead bg-primarytext-white">
+      <tr>
+        <th scope="col">Post</th>
+        <th scope="col">User Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of postList">
+        <td>
+          {{ post.text }}
+        </td>
+        <td>
+          {{ userId }}
+        </td>
+        <td><button>View</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <input [(ngModel)]="text" />
+        </td>
+        <td>
+          <select formControlName="postId" class="form-control">
+            <option *ngFor="let User of user - list" [value]="userId">
+              {{ userId }}
+            </option>
+          </select>
+        </td>
+        <td><button>Add</button></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
