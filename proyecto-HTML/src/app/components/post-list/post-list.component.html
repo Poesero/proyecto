@@ -9,19 +9,24 @@
   <table class="table table-striped">
     <thead class="thead bg-primarytext-white">
       <tr>
-        <th scope="col">Post</th>
-        <th scope="col">User Name</th>
+        <th scope="col">Id</th>
+        <th scope="col">Text</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let post of postList">
         <td>
-          {{ post.text }}
+          {{ post.id }}
         </td>
         <td>
-          {{ userId }}
+          {{ post.text }}
         </td>
-
+<td>
+          <button class="btn btn-danger btn-sm"onclick="borrar(post.id)">Delete</button> 
+</td>
+<td>
+  <button class="btn btn-danger btn-sm"onclick="view(post)">View</button>
+</td>
       </tr>
     </tbody>
     <tfoot>
@@ -30,22 +35,25 @@
           <input [(ngModel)]="text" />
         </td>
         <td>
-          <select formControlName="postId" class="form-control">
-            <option *ngFor="let User of user - list" [value]="userId">
-              {{ userId }}
+          <select formControlName="user" class="form-control">
+            <option *ngFor="let user of userList" [value]="user">
+              {{ user.userName}}
             </option>
           </select>
         </td>
-
       </tr>
       <tr>
         <td>
-          <button class="btn btn-danger btn-sm"onclick="borrar(postId)">Delete</button> 
-          <button class="btn btn-danger btn-sm"onclick="addPost()">Add</button>
-          <button class="btn btn-danger btn-sm"onclick="updatePost(postId)">Edit</button>
-          <button class="btn btn-danger btn-sm"onclick="view()">View</button>
+          <button class="btn btn-danger btn-sm"onclick="addPost()">Add</button> 
         </td>
       </tr>
     </tfoot>
   </table>
+
+<ng-template #ver let-modal>
+  <input class="form-control" [(ngModel)]="id2" readonly>
+  <input class="form-control" [(ngModel)]="Text2" ngbAutofocus>
+  <button (click)=" modal.close()">Guardar</button>
+</ng-template>
+
 </body>
