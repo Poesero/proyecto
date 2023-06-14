@@ -14,7 +14,7 @@ export class UserService {
   }
 
 
-  getTotal(): Observable<any> {
+  getAll(): Observable<any> {
     return this.http.get(this.url + '/total');
   }
 

@@ -1,7 +1,16 @@
+<style>
+  table.table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+</style>
+<body style="background-color: rgb(73, 114, 119)">
 <h2 class="mb-4">Usuarios</h2>
 <table class="table table-striped">
   <thead class="thead bg-primarytext-white">
     <tr>
+      <th></th>
       <th scope="col">User Name</th>
       <th scope="col">User Mail</th>
     </tr>
@@ -12,5 +21,19 @@
       <td>{{ user.userName }}</td>
       <td>{{ user.userMail }}</td>
     </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input [(ngModel)]="User Name"/>
+      </td>
+      <td>
+        <input [(ngModel)]="Mail"/>
+      </td>
+    </tr>
   </tbody>
+  <tfoot>
+      <td><button>Add</button></td>
+      <td><button>Delete</button></td>
+  </tfoot>
 </table>
+</body>
