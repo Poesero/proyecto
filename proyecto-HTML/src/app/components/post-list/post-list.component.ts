@@ -1,5 +1,5 @@
 import { PostService } from 'src/app/services/post.service'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { FormGroup, Validators, FormsModule, FormControl} from '@angular/forms';
 import { Post } from 'src/app/models/post';
 import { Router } from '@angular/router'
@@ -13,16 +13,16 @@ import { Usuario } from 'src/app/models/user';
     styleUrls: ['./post-list.component.css']
   })
   export class PostListComponent implements OnInit {
-
     imports:[FormsModule];
+    
+    @Input()
     postList = new Array<Post>()
     userList = new Array<Usuario>()
     postForm: FormGroup
-    userId: string
-    text: string
+    userId : string
+    text : string
 
-
-    costructor(private postService: PostService /*private router: Router*/){}
+    costructor(private postService: PostService,private router: Router){}
 
     ngOnInit(){
 
@@ -33,7 +33,9 @@ import { Usuario } from 'src/app/models/user';
             'userId': new FormControl(this.userId, Validators.required)
         })  
     
-        get userId() ;{ return this.postForm.get('userId') }
+   
+
+        get value userId() ;{ return this.postForm.get('userId') }
         get text() ;{ return this.postForm.get('text') }
 
 

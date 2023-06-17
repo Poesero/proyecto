@@ -21,12 +21,16 @@
         <td>
           {{ post.text }}
         </td>
-<td>
-          <button class="btn btn-danger btn-sm"onclick="borrar(post.id)">Delete</button> 
-</td>
-<td>
-  <button class="btn btn-danger btn-sm"onclick="view(post)">View</button>
-</td>
+        <td>
+          <button class="btn btn-danger btn-sm" onclick="borrar(post.id)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" onclick="view(post)">
+            View
+          </button>
+        </td>
       </tr>
     </tbody>
     <tfoot>
@@ -37,23 +41,22 @@
         <td>
           <select formControlName="user" class="form-control">
             <option *ngFor="let user of userList" [value]="user">
-              {{ user.userName}}
+              {{ user.userName }}
             </option>
           </select>
         </td>
       </tr>
       <tr>
         <td>
-          <button class="btn btn-danger btn-sm"onclick="addPost()">Add</button> 
+          <button class="btn btn-danger btn-sm" onclick="addPost()">Add</button>
         </td>
       </tr>
     </tfoot>
   </table>
 
-<ng-template #ver let-modal>
-  <input class="form-control" [(ngModel)]="id2" readonly>
-  <input class="form-control" [(ngModel)]="Text2" ngbAutofocus>
-  <button (click)=" modal.close()">Guardar</button>
-</ng-template>
-
+  <ng-template #ver let-modal style="align-self: center">
+    <input class="form-control" [(ngModel)]="id2" readonly />
+    <input class="form-control" [(ngModel)]="Text2" ngbAutofocus />
+    <button (click)="modal.close()">Guardar</button>
+  </ng-template>
 </body>
